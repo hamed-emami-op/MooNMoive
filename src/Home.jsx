@@ -1,9 +1,10 @@
-import Header from "./compponents/Header";
+import MovieSlider from "./compponents/MovieSlider/MovieSlider";
+
 
 export default function Home() {
   return (
-    <div>
-      <Header />
+    <div className="container ">
+      <MovieSlider />
     </div>
   );
 }

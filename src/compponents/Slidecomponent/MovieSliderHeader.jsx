@@ -1,25 +1,16 @@
-import axios from "axios";
-import { useState } from "react";
-import { useQuery } from "react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Link } from "react-router-dom";
 
-export default function MovieSlider() {
-  const [movies, setMovies] = useState([]);
-  const { data, isLoading, isError, error } = useQuery(["api-tmdb"], () => {
-    axios
-      .get(
-        "https://api.themoviedb.org/3/discover/movie?api_key=d52f00854ed915b688d5abec54bce588&with_genres=16&sort_by=popularity.desc"
-      )
-      .then((res) => setMovies(res.data.results));
-  });
-  if (isLoading) {
+export default function MovieSliderHeader({movies}) {
+  if (movies?.isLoading) {
     return <h4 className="text-black">Is Loading...</h4>;
   }
-  if (isError) {
+  if (movies?.isError) {
     return (
-      <h4 className="text-black">error : error-message : {error.message}</h4>
+      <h4 className="text-black">
+        error : error-message : {movies?.error.message}
+      </h4>
     );
   }
   function truncateText(text, maxLength) {
@@ -28,10 +19,22 @@ export default function MovieSlider() {
     }
     return text;
   }
-
+  function imgColNot() {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z" />
+      </svg>
+    );
+  }
   return (
     <Swiper slidesPerView={1} loop={true} autoplay={{ delay: 3000 }}>
-      {movies?.map((movie) => {
+      {movies?.data?.map((movie) => {
         return (
           <SwiperSlide key={movie.id}>
             <div
@@ -39,8 +42,7 @@ export default function MovieSlider() {
               style={{
                 backgroundImage: movie.backdrop_path
                   ? `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`
-                  : `url('/moon.png')`,
-                borderRadius: `50px`
+                  : `url(${imgColNot})`,
               }}
             >
               <div className="relative inset-0 flex flex-col justify-center p-8 pt-36 w-full ">
