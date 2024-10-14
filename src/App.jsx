@@ -12,7 +12,7 @@ function App() {
 
   return (
     <QueryClientProvider client={client}>
-      <div className="container font-sans md:w-full ">
+      <div className="container font-sans md:w-full">
         <Router>
           <Navbar />
           <Routes>
