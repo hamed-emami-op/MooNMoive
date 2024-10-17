@@ -11,16 +11,16 @@ function App() {
   });
 
   return (
-    <QueryClientProvider client={client}>
-      <div className="container font-sans md:w-full">
+    <div className=" font-sans w-full">
+        <QueryClientProvider client={client}>
         <Router>
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>
         </Router>
-      </div>
     </QueryClientProvider>
+      </div>
   );
 }
 
