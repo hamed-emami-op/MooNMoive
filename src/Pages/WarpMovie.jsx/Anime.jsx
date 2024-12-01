@@ -186,7 +186,7 @@ export default function Anime({ data, animeLoading }) {
           spaceBetween={20}
           slidesPerView={6}
           autoplay={{
-            delay: 3000000,
+            delay: 3000,
           }}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
