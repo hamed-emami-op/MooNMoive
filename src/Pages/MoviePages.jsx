@@ -33,7 +33,7 @@ export default function MoviePages() {
     <div className="w-full h-[245vh] bg-[#0f0e0e] text-white pt-20 pl-8 pr-8 pb-20">
       <div className="grid grid-cols-5 gap-5">
         {movieP?.results.map((movie) => (
-          <Link key={movie.id} to={`/movie/${movie.id}`}>
+          <Link key={movie.id} to={`/movie/details/movie/${movie.id}`}>
             <div className="relative h-full flex flex-col items-center bg-gray-800 rounded-lg overflow-hidden">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

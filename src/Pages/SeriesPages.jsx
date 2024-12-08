@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 
@@ -32,7 +32,7 @@ export default function SeriesPages() {
     <div className="w-full h-[245vh] bg-[#0f0e0e] text-white pt-20 pl-8 pr-8 pb-20">
       <div className="grid grid-cols-5 gap-5">
         {seriesP?.results.map((series) => (
-          <Link key={series.id} to={`/anime/${series.id}`}>
+          <Link key={series.id} to={`/series/details/tv/${series.id}`}>
             <div className="relative h-full flex flex-col items-center bg-gray-800 rounded-lg overflow-hidden">
               <img
                 src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}

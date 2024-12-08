@@ -149,7 +149,7 @@ export default function Movie({ data }) {
         {movies?.map((movie) => (
           <SwiperSlide key={movie.id}>
             <div className="group w-full bg-[#0f0e0e] rounded-3xl p-2 h-[435px]">
-              <Link to={`/movie/${movie.id}`}>
+              <Link to={`/movie/details/movie/${movie.id}`}>
                 <img
                   className="flex justify-center items-center w-full h-full object-cover rounded-3xl transition-all duration-1000 cursor-pointer hover:bg-opacity-50 hover:bg-black"
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

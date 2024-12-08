@@ -97,32 +97,67 @@ export default function Anime({ data, animeLoading }) {
               <h2 className="text-5xl mb-4 font-bold text-white">
                 {hoveredAnime.name}
               </h2>
-                <div className="flex mb-4">
+              <div className="flex mb-4">
                 <p className="flex items-center gap-1 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-play-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"/>
-                </svg><span>Tv</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-play-circle"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                    <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445" />
+                  </svg>
+                  <span>Tv</span>
                 </p>
-                {hoveredAnime.last_episode_to_air.runtime && 
-                <p className="text-white pl-5 flex items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock-fill" viewBox="0 0 16 16">
-  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
-</svg>{hoveredAnime.last_episode_to_air.runtime}m
-                  </p>}
-                  <span className="flex text-white items-center pl-5 gap-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-calendar-event-fill" viewBox="0 0 16 16">
-  <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5"/>
-</svg>{hoveredAnime.first_air_date}</span>
-<span className="flex text-white items-center pl-5 gap-1">
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-calendar-event" viewBox="0 0 16 16">
-  <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
-  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
-</svg>{hoveredAnime.first_air_date}</span>
-                </div>
+                {hoveredAnime.last_episode_to_air.runtime && (
+                  <p className="text-white pl-5 flex items-center gap-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-clock-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                    </svg>
+                    {hoveredAnime.last_episode_to_air.runtime}m
+                  </p>
+                )}
+                <span className="flex text-white items-center pl-5 gap-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-calendar-event-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5" />
+                  </svg>
+                  {hoveredAnime.first_air_date}
+                </span>
+                <span className="flex text-white items-center pl-5 gap-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-calendar-event"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
+                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+                  </svg>
+                  {hoveredAnime.first_air_date}
+                </span>
+              </div>
               <p className="text-lg mb-2 w-[400px] h-[150px] text-white inline-flex">
                 {hoveredAnime.overview
-                  ? truncateText(hoveredAnime.overview, 200 , "...")
+                  ? truncateText(hoveredAnime.overview, 200, "...")
                   : "No description available"}
               </p>
               <div className=" mt-4 flex items-end">
@@ -142,7 +177,7 @@ export default function Anime({ data, animeLoading }) {
                     <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                   </svg>
                 </button>
-                <Link to={`/kids/${hoveredAnime.id}`}>
+                <Link to={`/anime/details/tv/${hoveredAnime.id}`}>
                   <button className="flex bg-white bg-opacity-10 backdrop-blur px-6 py-3 rounded-3xl transition-all duration-300 hover:text-black hover:bg-white">
                     Details
                     <svg
@@ -164,7 +199,7 @@ export default function Anime({ data, animeLoading }) {
             </div>
             <div
               className={`transition-all duration-300 ml-[50%] text-center`}
-              style={{ minHeight: "370px" , marginLeft: "1000px"}}
+              style={{ minHeight: "370px", marginLeft: "1000px" }}
             >
               {watchTriler && hoverId && getTrailerForHoveredAnime(hoverId) ? (
                 <ReactPlayer
@@ -211,7 +246,7 @@ export default function Anime({ data, animeLoading }) {
                         {anime.vote_count}
                       </p>
                     </div>
-                     <div
+                    <div
                       className="absolute overflow-auto overflow-y-scroll no-scrollbar text-white p-4 h-full bottom-0 w-full rounded-3xl opacity-0 transition-all duration-300 hover:opacity-100 hover:bg-opacity-70 inline-block backdrop-blur-xl "
                       onClick={() => {
                         setImgUrl(
@@ -221,37 +256,37 @@ export default function Anime({ data, animeLoading }) {
                         setHoverId(anime.id);
                       }}
                     >
-                 <h3 className="pb-2 font-semibold ">
-                   Name Anime : {anime.name}
-                 </h3>
-                 <p>
-                   <strong> genres : </strong>
-                   {anime.genres?.map((genre) => (
-                     <span key={genre.id}> {genre.name}</span>
-                   ))}{" "}
-                 </p>
-                 <p className="mt-2 ">
-                   <strong> overview : </strong>
-                   {anime
-                     ? truncateText(anime.overview, 50)
-                     : "No description available"}
-                 </p>
-                 <p className="mt-2">
-                   <strong> number of episodes </strong> :{" "}
-                   {anime.number_of_episodes}
-                 </p>
-                 <p className="mt-2">
-                   <strong> number of seasons </strong> :{" "}
-                   {anime.number_of_seasons}
-                 </p>
-                 <p className="mt-2">
-                   <strong> Release Date </strong> : {anime.first_air_date}
-                 </p>
-                 <p className="mt-2">
-                   <strong> origin country </strong> :{" "}
-                   {anime.origin_country}
-                 </p>
-                    </div> 
+                      <h3 className="pb-2 font-semibold ">
+                        Name Anime : {anime.name}
+                      </h3>
+                      <p>
+                        <strong> genres : </strong>
+                        {anime.genres?.map((genre) => (
+                          <span key={genre.id}> {genre.name}</span>
+                        ))}{" "}
+                      </p>
+                      <p className="mt-2 ">
+                        <strong> overview : </strong>
+                        {anime
+                          ? truncateText(anime.overview, 50)
+                          : "No description available"}
+                      </p>
+                      <p className="mt-2">
+                        <strong> number of episodes </strong> :{" "}
+                        {anime.number_of_episodes}
+                      </p>
+                      <p className="mt-2">
+                        <strong> number of seasons </strong> :{" "}
+                        {anime.number_of_seasons}
+                      </p>
+                      <p className="mt-2">
+                        <strong> Release Date </strong> : {anime.first_air_date}
+                      </p>
+                      <p className="mt-2">
+                        <strong> origin country </strong> :{" "}
+                        {anime.origin_country}
+                      </p>
+                    </div>
                   </div>
                 </Link>
               </SwiperSlide>

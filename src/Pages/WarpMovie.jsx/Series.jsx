@@ -44,7 +44,7 @@ export default function Series({ data }) {
         {seriesDetails?.map((series) => (
           <SwiperSlide key={series.id}>
             <div className="group w-full bg-[#0f0e0e] rounded-3xl p-2 h-[435px]">
-              <Link to={`/series/${series.id}`}>
+              <Link to={`/series/details/tv/${series.id}`}>
                 <img
                   className="flex justify-center items-center w-full h-full object-cover rounded-3xl transition-all duration-1000 cursor-pointer hover:bg-opacity-50 hover:bg-black"
                   src={`https://image.tmdb.org/t/p/w500${series.poster_path}`}
@@ -68,7 +68,7 @@ export default function Series({ data }) {
                   <p className="mt-2">
                     <strong>genres :</strong>{" "}
                     {series?.genres?.map((id) => (
-                      <span key={id.id}> {id.name }</span>
+                      <span key={id.id}> {id.name}</span>
                     ))}
                   </p>
                   <p className="mt-2 ">

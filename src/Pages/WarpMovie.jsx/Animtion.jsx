@@ -43,7 +43,7 @@ export default function Animation({ data }) {
         {data?.map((anime) => (
           <SwiperSlide key={anime.id}>
             <div className="group p-2 w-full bg-[#0f0e0e] rounded-3xl h-[435px] ">
-              <Link to={`/anime/${anime.id}`}>
+              <Link to={`/animation/details/movie/${anime.id}`}>
                 <img
                   className="relative flex justify-center items-center w-full h-[100%] object-cover rounded-3xl transition-all duration-1000 cursor-pointer hover:bg-opacity-50 hover:bg-black"
                   src={`https://image.tmdb.org/t/p/w500${anime.poster_path}`}

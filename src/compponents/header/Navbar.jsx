@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBox from "./SearchBox";
 import { useEffect } from "react";
+import { UserContext } from "../context/UserContext";
 
 export default function Navbar() {
+  const { user, logout } = useContext(UserContext);
+
   useEffect(() => {
     const navbar = document.getElementById("navbar");
 
@@ -23,7 +26,10 @@ export default function Navbar() {
   }, []);
   const [inputShow, setinputShow] = useState(false);
   return (
-    <nav id="navbar" className="fixed flex items-center justify-between w-full z-[1000]">
+    <nav
+      id="navbar"
+      className="fixed flex items-center justify-between w-full z-[1000]"
+    >
       <div className="flex items-center">
         <h1 className="text-3xl font-serif text-white px-8 py-2 text-shadow-white text-shadow-blur-5 text-shadow-x-1 text-shadow-y-1 transition-all duration-300 hover:text-shadow-sm ">
           <Link to={"/"}>
@@ -62,7 +68,6 @@ export default function Navbar() {
               </Link>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-500 group-hover:w-full"></span>
             </li>
-
           </ul>
         </div>
       </div>
@@ -97,23 +102,30 @@ export default function Navbar() {
           </svg>
         </div>
 
-        <div className="flex gap-4 px-1 pt-2">
-          <Link to="/login">
-            {" "}
-            <button className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group hover:text-black">
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-500 to-pink-500"></span>
-              <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-300 ease-out bg-white group-hover:h-full"></span>
-              <span className="relative">login</span>
-            </button>
-          </Link>
-          <Link to="/sign-up">
-            <button className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group hover:text-black">
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-500 to-pink-500"></span>
-              <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-300 ease-out bg-white group-hover:h-full"></span>
-              <span className="relative">Sign Up</span>
-            </button>
-          </Link>
-        </div>
+        {user ? (
+          <div>
+            <div className="pr-10"> {user.name}</div>
+            <button onClick={logout}>logout</button>
+          </div>
+        ) : (
+          <div className="flex gap-4 px-1 pt-2">
+            <Link to="/login">
+              {" "}
+              <button className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group hover:text-black">
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-500 to-pink-500"></span>
+                <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-300 ease-out bg-white group-hover:h-full"></span>
+                <span className="relative">login</span>
+              </button>
+            </Link>
+            <Link to="/sign-up">
+              <button className="relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group hover:text-black">
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-500 to-pink-500"></span>
+                <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-300 ease-out bg-white group-hover:h-full"></span>
+                <span className="relative">Sign Up</span>
+              </button>
+            </Link>{" "}
+          </div>
+        )}
       </div>
     </nav>
   );
