@@ -1,3 +1,5 @@
+import textShadow from "@designbycode/tailwindcss-text-shadow";
+
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -7,10 +9,8 @@ export default {
       },
       // keyframes: {
       //   borderExpand: {
-
-      //     '0%':{ width: '0px', },
-          
-      //     '100%':{ width: '100%' , }
+      //     '0%': { width: '0px' },
+      //     '100%': { width: '100%' }
       //   }
       // },
       // animation: {
@@ -18,5 +18,5 @@ export default {
       // }
     },
   },
-  plugins: [require("@designbycode/tailwindcss-text-shadow")],
+  plugins: [textShadow],
 };
