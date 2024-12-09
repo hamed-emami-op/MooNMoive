@@ -76,7 +76,7 @@ export default function Anime({ data, animeLoading }) {
     return text;
   }
   const [watchTriler, setWatchTriler] = useState(false);
-  const [imgUrl, setImgUrl] = useState("/public/moon.png");
+  const [imgUrl, setImgUrl] = useState("/moon.png");
   const [hoverId, setHoverId] = useState(null);
   const hoveredAnime = animeDetails?.find((anime) => anime.id === hoverId);
   return (
